@@ -20,8 +20,11 @@ class LoginForm extends Component {
     const response = await fetch(url, options)
 
     if (response.ok === true) {
+      this.setState({isTrue: false})
       this.onSubmitSuccess()
-    } else {
+    }
+    if (response.ok === false) {
+      console.log(response)
       this.setState({isTrue: true})
     }
   }
